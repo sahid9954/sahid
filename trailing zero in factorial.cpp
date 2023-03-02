@@ -1,17 +1,15 @@
 #include<iostream>
 using namespace std;
 int trialingzero(int n){
-    int fact=1;
-    for(int i=1;i<=n;i++){
-        fact*=i;
+    int res=0;
+    // This code improves the time complexity from old theta(n) or theta(n^2) to theta(logn).
+    for (int i = 5; i <= n; i=i*5)
+    {
+        res+=(n/i);
     }
-        int res=0;
-        while(fact%10==0){
-             res++;
-             fact=fact/10;
-        }
     return res;
 }
+
 int main(){
     int n=10;
     cout<<trialingzero(n)<<endl;
